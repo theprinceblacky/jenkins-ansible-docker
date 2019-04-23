@@ -10,10 +10,9 @@
       - docker-compose
 
 - name: run container
-  docker:
+  docker_container:
     name: wartest
-    registry: registry.gitlab.com
-    image: "xavki/presentations-jenkins/wartest:{{ version }}"
+    image: "{{ image }}"
     ports: 8081:8080
     state: started
  

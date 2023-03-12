@@ -1,7 +1,10 @@
 
 - name: install wartest
   hosts: all
+  remote_user: ansible
   become: yes
+  vars:
+    ansible_become_password: babine
   roles:
     - wartest
 

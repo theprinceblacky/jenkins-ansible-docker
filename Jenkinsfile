@@ -1,8 +1,8 @@
 node {
-   def registryProjet='registry.gitlab.com/xavki/presentations-jenkins/wartest'
+   def registryProjet='registry.gitlab.com/myfistgroup2/cmpilationwar'
    def IMAGE="${registryProjet}:version-${env.BUILD_ID}"
     stage('Build - Clone') {
-          git 'https://github.com/priximmo/war-build-docker.git'
+           git credentialsId: 'reg2', url: 'https://github.com/theprinceblacky/jenkins-ansible-docker.git'
     }
     stage('Build - Maven package'){
             sh 'mvn package'
@@ -26,14 +26,14 @@ node {
           }
     }
     stage('Deploy - Clone') {
-          git 'https://github.com/priximmo/jenkins-ansible-docker.git'
+          git credentialsId: 'reg2', url: 'https://github.com/theprinceblacky/jenkins-ansible-docker.git'
     }
     stage('Deploy - End') {
       ansiblePlaybook (
           colorized: true,
           become: true,
           playbook: 'playbook.yml',
-         inventory: '${HOST},',
+          inventory: '${HOST},',
           extras: "--extra-vars 'image=$IMAGE'"
       )
     }

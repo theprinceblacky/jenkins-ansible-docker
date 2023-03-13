@@ -6,7 +6,7 @@
 - name: pip install docker-py
   pip:
     name:
-      - docker
+      - docker.io
       - docker-compose
 
 - name: run container

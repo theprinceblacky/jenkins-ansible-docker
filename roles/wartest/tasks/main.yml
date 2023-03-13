@@ -1,13 +1,13 @@
-- name: install pip
-  apt:
-    name: python3-pip
-    state: present
+#- name: install pip
+#  apt:
+ #   name: python3-pip
+  #  state: present
 
-- name: pip install docker-py
-  pip:
-    name:
-      - docker.io
-      - docker-compose
+#- name: pip install docker-py
+  #pip:
+    #name:
+     # - docker.io
+     # - docker-compose
 
 - name: run container
   docker_container:

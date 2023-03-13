@@ -12,7 +12,7 @@
 - name: run container
   docker_container:
     name: wartest
-    image: "{{ image }}"
+    image: "{{ IMAGE }}"
     ports: 8081:8080
     state: started
  
